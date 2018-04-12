@@ -1,12 +1,13 @@
 const scl = 20;
+const spwnChance = 0.05;
 let grid;
 let rows;
 let cols;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  noStroke();
-  frameRate(1);
+  // noStroke();
+  frameRate(5);
   rows = round(height / scl);
   cols = round(width / scl);
   grid = makeGrid();
@@ -22,7 +23,11 @@ function makeGrid() {
   for (let x = 0; x < cols; x++) {
     let col = [];
     for (let y = 0; y < rows; y++) {
-      col[y] = round(random(1));
+      if (round(random(1) < spwnChance)) {
+        col[y] = 1;
+      } else {
+        col[y] = 0;
+      }
     }
     grid[x] = col;
   }
@@ -32,7 +37,6 @@ function makeGrid() {
 function drawGrid(grid) {
   for (let x = 0; x < cols; x++) {
     for (let y = 0; y < rows; y++) {
-      console.log(x + " " + y);
       fill((1-grid[x][y]) * 255);
       rect(x*scl, y*scl, scl, scl);
     }

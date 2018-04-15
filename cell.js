@@ -12,6 +12,16 @@ class Cell {
     rect(this.posPixel.x, this.posPixel.y, this.size, this.size);
   }
 
+  clicked(x, y) {
+    let xMaxVal = this.posPixel.x + this.size;
+    let xMinVal = this.posPixel.x;
+    let yMaxVal = this.posPixel.y + this.size;
+    let yMinVal = this.posPixel.y;
+    if (x < xMaxVal && x > xMinVal && y < yMaxVal && y > yMinVal) {
+      this.switchState();
+    }
+  }
+
   pickState() {
     if (this.spwnChance > random()) {
       return 1;

@@ -23,8 +23,24 @@ class Grid {
     }
   }
 
+  clicked(x, y) {
+    for (let col of this.table) {
+      for (let c of col) {
+        c.clicked(x, y);
+      }
+    }
+  }
+
   getCell(x, y) {
     return this.table[y][x];
+  }
+
+  setAll(val) {
+    for (let col of this.table) {
+      for (let c of col) {
+        c.changeState(val);
+      }
+    }
   }
 
   countNearby(cell) {

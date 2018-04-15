@@ -15,6 +15,21 @@ class Grid {
     }
   }
 
+  clone2dArray(table) {
+    let newTable = [];
+    for (let col of table) {
+      let newCol = [];
+      for (let c of col) {
+        let newCell = JSON.parse(JSON.stringify(c));
+        newCol.push(newCell);
+      }
+
+      newTable.push(newCol);
+    }
+
+    return newTable;
+  }
+
   draw() {
     for (let col of this.table) {
       for (let c of col) {
@@ -43,7 +58,7 @@ class Grid {
   }
 
   update() {
-    let nextTable = this.table;
+    let nextTable = clone(this.table);
     for (let col of this.table) {
       for (let c of col) {
         let nb = this.countNearby(c);

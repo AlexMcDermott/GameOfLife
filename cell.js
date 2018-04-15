@@ -1,9 +1,9 @@
 class Cell {
   constructor(size, x, y) {
     this.size = size;
-    this.posIndex = createVector(x, y);
-    this.posPixel = createVector(this.posIndex.x * size, this.posIndex.y * size);
-    this.spwnChance = 0.05;
+    this.posIndex = { x: x, y: y };
+    this.posPixel = { x: x * size, y: y * size };;
+    this.spwnChance = 0.50;
     this.state = this.pickState();
   }
 

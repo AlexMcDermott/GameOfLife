@@ -15,21 +15,6 @@ class Grid {
     }
   }
 
-  clone2dArray(table) {
-    let newTable = [];
-    for (let col of table) {
-      let newCol = [];
-      for (let c of col) {
-        let newCell = JSON.parse(JSON.stringify(c));
-        newCol.push(newCell);
-      }
-
-      newTable.push(newCol);
-    }
-
-    return newTable;
-  }
-
   draw() {
     for (let col of this.table) {
       for (let c of col) {

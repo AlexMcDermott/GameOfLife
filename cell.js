@@ -4,7 +4,7 @@ class Cell {
     this.posIndex = { x: x, y: y };
     this.posPixel = { x: x * size, y: y * size };;
     this.spwnChance = 0.50;
-    this.state = this.pickState();
+    this.state = 0;
   }
 
   draw() {
@@ -24,9 +24,9 @@ class Cell {
 
   pickState() {
     if (this.spwnChance > random()) {
-      return 1;
+      this.state = 1;
     } else {
-      return 0;
+      this.state = 0;
     }
   }
 

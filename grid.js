@@ -3,14 +3,26 @@ class Grid {
     this.scl = scl;
     this.rows = rows;
     this.cols = cols;
-    this.table = [];
+    this.table = this.build();
+    this.randomise();
   }
 
   build() {
+    let table = [];
     for (let x = 0; x < this.cols; x++) {
-      this.table[x] = [];
+      table[x] = [];
       for (let y = 0; y < this.rows; y++) {
-        this.table[x][y] = new Cell(this.scl, x, y);
+        table[x][y] = new Cell(this.scl, x, y);
+      }
+    }
+
+    return table;
+  }
+
+  randomise() {
+    for (let col of this.table) {
+      for (let c of col) {
+        c.pickState();
       }
     }
   }
@@ -59,7 +71,7 @@ class Grid {
   }
 
   update() {
-    let nextTable = clone(this.table);
+    let nextTable = this.build();
     for (let col of this.table) {
       for (let c of col) {
         let nb = this.countNearby(c);

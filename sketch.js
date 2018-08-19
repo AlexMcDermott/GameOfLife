@@ -20,12 +20,10 @@ function draw() {
 
 function keyTyped() {
   if (key === 'p') {
-    if (running === true) {
-      running = false;
-    } else {
-      running = true;
-    }
-  } else if (key === 'c') {
+    running = !running;
+  }
+
+  if (key === 'c') {
     g.setAll(0);
   }
 

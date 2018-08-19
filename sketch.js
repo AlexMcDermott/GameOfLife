@@ -35,7 +35,12 @@ function keyTyped() {
   return false;
 }
 
-function mouseClicked() {
+function mousePressed() {
   g.clicked(mouseX, mouseY);
+  return false;
+}
+
+function mouseDragged() {
+  g.highlight(mouseX, mouseY);
   return false;
 }

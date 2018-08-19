@@ -38,7 +38,21 @@ class Grid {
   clicked(x, y) {
     for (let col of this.table) {
       for (let c of col) {
-        c.clicked(x, y);
+        if (c.clicked(x, y) == true) {
+          c.click();
+          return;
+        }
+      }
+    }
+  }
+
+  highlight(x, y) {
+    for (let col of this.table) {
+      for (let c of col) {
+        if (c.clicked(x, y) == true) {
+          c.highlight();
+          return;
+        }
       }
     }
   }
@@ -46,7 +60,7 @@ class Grid {
   setAll(val) {
     for (let col of this.table) {
       for (let c of col) {
-        c.changeState(val);
+        c.setState(val);
       }
     }
   }
@@ -72,7 +86,7 @@ class Grid {
       for (let c of col) {
         let nb = this.countNearby(c);
         let nextState = c.recalcState(nb);
-        nextTable[c.posIndex.x][c.posIndex.y].changeState(nextState);
+        nextTable[c.posIndex.x][c.posIndex.y].setState(nextState);
       }
     }
 

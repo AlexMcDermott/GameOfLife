@@ -18,9 +18,18 @@ class Cell {
     let yMaxVal = this.posPixel.y + this.size;
     let yMinVal = this.posPixel.y;
     if (x <= xMaxVal && x > xMinVal && y <= yMaxVal && y > yMinVal) {
-      this.switchState();
-      this.draw();
+      return true;
     }
+  }
+
+  click(x, y) {
+    this.switchState();
+    this.draw();
+  }
+
+  highlight(x, y) {
+    this.setState(1);
+    this.draw();
   }
 
   pickState() {
@@ -41,7 +50,7 @@ class Cell {
     }
   }
 
-  changeState(state) {
+  setState(state) {
     this.state = state;
   }
 

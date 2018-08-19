@@ -7,7 +7,6 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(fps);
   g = new Grid(width, height, scl);
-  g.build();
   g.draw();
 }
 
@@ -41,4 +40,10 @@ function mousePressed() {
 function mouseDragged() {
   g.highlight(mouseX, mouseY);
   return false;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  g = new Grid(width, height, scl);
+  g.draw();
 }

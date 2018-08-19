@@ -22,7 +22,7 @@ class Grid {
   randomise() {
     for (let col of this.table) {
       for (let c of col) {
-        c.pickState();
+        c.randomise();
       }
     }
   }

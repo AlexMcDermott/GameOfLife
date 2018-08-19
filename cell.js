@@ -22,7 +22,7 @@ class Cell {
     }
   }
 
-  pickState() {
+  randomise() {
     if (this.spwnChance > random()) {
       this.state = 1;
     } else {

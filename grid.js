@@ -1,8 +1,8 @@
 class Grid {
-  constructor(scl, rows, cols) {
+  constructor(width, height, scl) {
     this.scl = scl;
-    this.rows = rows;
-    this.cols = cols;
+    this.rows = round(height / scl);
+    this.cols = round(width / scl);
     this.table = this.build();
     this.randomise();
   }

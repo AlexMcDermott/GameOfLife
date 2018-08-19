@@ -6,9 +6,7 @@ let running = true;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(fps);
-  let rows = round(height / scl);
-  let cols = round(width / scl);
-  g = new Grid(scl, rows, cols);
+  g = new Grid(width, height, scl);
   g.build();
   g.draw();
 }

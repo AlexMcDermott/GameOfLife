@@ -1,7 +1,6 @@
 const scl = 20;
 const fps = 15;
 let g;
-let running = true;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -11,24 +10,14 @@ function setup() {
 }
 
 function draw() {
-  if (running) {
+  if (g.isRunning()) {
     g.update();
     g.draw();
   }
 }
 
 function keyTyped() {
-  if (key === 'p') {
-    running = !running;
-  }
-
-  if (key === 'c') {
-    g.setAll(0);
-    if (!running) {
-      g.draw();
-    }
-  }
-
+  g.handleKey(key);
   return false;
 }
 
@@ -45,5 +34,4 @@ function mouseDragged() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   g = new Grid(width, height, scl);
-  g.draw();
 }

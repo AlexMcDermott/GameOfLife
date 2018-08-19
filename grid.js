@@ -4,6 +4,7 @@ class Grid {
     this.rows = round(height / scl);
     this.cols = round(width / scl);
     this.table = this.build();
+    this.running = true;
     this.randomise();
   }
 
@@ -17,6 +18,23 @@ class Grid {
     }
 
     return table;
+  }
+
+  isRunning() {
+    return this.running;
+  }
+
+  handleKey(key) {
+    if (key === 'p') {
+      this.running = !this.running;
+    }
+
+    if (key === 'c') {
+      this.setAll(0);
+      if (!this.running) {
+        this.draw();
+      }
+    }
   }
 
   randomise() {

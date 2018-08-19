@@ -17,8 +17,9 @@ class Cell {
     let xMinVal = this.posPixel.x;
     let yMaxVal = this.posPixel.y + this.size;
     let yMinVal = this.posPixel.y;
-    if (x < xMaxVal && x > xMinVal && y < yMaxVal && y > yMinVal) {
+    if (x <= xMaxVal && x > xMinVal && y <= yMaxVal && y > yMinVal) {
       this.switchState();
+      this.draw();
     }
   }
 

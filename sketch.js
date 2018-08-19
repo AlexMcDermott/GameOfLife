@@ -10,10 +10,11 @@ function setup() {
   let cols = round(width / scl);
   g = new Grid(scl, rows, cols);
   g.build();
+  g.draw();
 }
 
 function draw() {
-  if (running === true) {
+  if (running) {
     g.update();
     g.draw();
   }
@@ -26,7 +27,7 @@ function keyTyped() {
 
   if (key === 'c') {
     g.setAll(0);
-    if (running == false) {
+    if (!running) {
       g.draw();
     }
   }
@@ -36,6 +37,5 @@ function keyTyped() {
 
 function mouseClicked() {
   g.clicked(mouseX, mouseY);
-  g.draw();
   return false;
 }

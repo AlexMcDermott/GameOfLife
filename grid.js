@@ -39,7 +39,8 @@ class Grid {
     for (let col of this.table) {
       for (let c of col) {
         if (c.clicked(x, y) == true) {
-          c.click();
+          c.switchState();
+          c.draw();
           return;
         }
       }
@@ -50,7 +51,8 @@ class Grid {
     for (let col of this.table) {
       for (let c of col) {
         if (c.clicked(x, y) == true) {
-          c.highlight();
+          c.setState(1);
+          c.draw();
           return;
         }
       }

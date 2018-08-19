@@ -22,16 +22,6 @@ class Cell {
     }
   }
 
-  click(x, y) {
-    this.switchState();
-    this.draw();
-  }
-
-  highlight(x, y) {
-    this.setState(1);
-    this.draw();
-  }
-
   pickState() {
     if (this.spwnChance > random()) {
       this.state = 1;

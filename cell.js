@@ -2,7 +2,7 @@ class Cell {
   constructor(size, x, y) {
     this.size = size;
     this.posIndex = { x: x, y: y };
-    this.posPixel = { x: x * size, y: y * size };;
+    this.posPixel = { x: x * size, y: y * size };
     this.spwnChance = 0.50;
     this.state = 0;
   }
